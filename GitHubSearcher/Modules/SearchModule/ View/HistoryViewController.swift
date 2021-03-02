@@ -59,4 +59,9 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         cell.setup(fullName: model.fullName ?? "Unnamed", starsCount: model.starCount ?? 0)
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let model = self.repositories[indexPath.row]
+        guard let string = model.htmlUrl, let link = URL(string: string) else { return }
+        UIApplication.shared.open(link)
+    }
 }
