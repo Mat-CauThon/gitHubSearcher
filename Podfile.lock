@@ -1,0 +1,20 @@
+PODS:
+  - BaseAPI (0.1.12)
+  - SnapKit (5.0.1)
+
+DEPENDENCIES:
+  - BaseAPI
+  - SnapKit (~> 5.0.0)
+
+SPEC REPOS:
+  trunk:
+    - BaseAPI
+    - SnapKit
+
+SPEC CHECKSUMS:
+  BaseAPI: 84c9b49d75b8be1e9d7facd66bd14082eee499e4
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+
+PODFILE CHECKSUM: 764718a0c7fa87d2eb8e680ba3b83b658423eb91
+
+COCOAPODS: 1.10.0
