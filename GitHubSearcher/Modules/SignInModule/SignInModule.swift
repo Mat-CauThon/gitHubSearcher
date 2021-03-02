@@ -2,28 +2,38 @@
 //  SignInModule.swift
 //  GitHubSearcher
 //
-//  Created by Roman Mishchenko on 28.02.2021.
+//  Created by Roman Mishchenko on 01.03.2021.
 //
 
 import UIKit
-import AbstractModule
+
+enum SignInModuleAction {
+    case login(String)
+}
+
+protocol SignInModuleOutput: class {
+    func didProduce(action: SignInModuleAction)
+}
 
 class SignInModule: AbstractModule {
     
-    var interactor: SignInInteractor
-    var presenter: SignInPresenter
-    
     var rootViewController: UIViewController {
         get {
-            return presenter.controller
+            return self.presenter.controller
         }
     }
     
-    init() {
+    public var interactor: SignInInteractor
+    public var presenter: SignInPresenter
+    
+    init(output: SignInModuleOutput) {
         let presenter = SignInPresenter()
         self.presenter = presenter
         self.interactor = SignInInteractor(presenter: presenter)
+        self.interactor.setupOutput(output: output)
         presenter.setupInteractor(interactor: self.interactor)
     }
     
+    
 }
+

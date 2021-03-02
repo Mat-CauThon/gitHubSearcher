@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import Networking
 
 final class SignInPresenter {
     
     private weak var interactor: SignInInteractor?
-    public var controller: SignInController
+    private(set) var controller: SignInController
     
     init() {
         self.controller = SignInController()

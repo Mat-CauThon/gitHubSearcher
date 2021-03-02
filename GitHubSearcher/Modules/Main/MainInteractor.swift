@@ -16,7 +16,19 @@ class MainInteractor {
     }
     
     public func mainFlow() {
-        self.presenter.showSignIn()
+//        self.presenter.showSignIn(output: self)
+        self.presenter.showSearch(username: "GitHubSearcher")
     }
+    
+}
+
+extension MainInteractor: SignInModuleOutput {
+    func didProduce(action: SignInModuleAction) {
+        switch action {
+            case .login(let username):
+                self.presenter.showSearch(username: username)
+        }
+    }
+    
     
 }

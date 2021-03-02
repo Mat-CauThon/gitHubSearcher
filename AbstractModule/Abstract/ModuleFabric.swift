@@ -30,17 +30,23 @@ final class ModuleHolder<Module: AbstractModule> {
 final class ModuleFabric {
     
     enum ModuleType {
-        case signIn
+        case signIn(SignInModuleOutput)
+        case search(String)
     }
     
     private var signIn: ModuleHolder<SignInModule>?
+    private var search: ModuleHolder<SearchModule>?
     
     public func setupNewModule(type: ModuleType) -> AbstractModule? {
         switch type {
-            case .signIn:
+            case .signIn(let output):
                 self.signIn?.destroyModule()
-                self.signIn = ModuleHolder<SignInModule>(module: SignInModule())
+                self.signIn = ModuleHolder<SignInModule>(module: SignInModule(output: output))
                 return self.signIn?.abstractModule
+            case .search(let username):
+                self.search?.destroyModule()
+                self.search = ModuleHolder<SearchModule>(module: SearchModule(username: username))
+                return self.search?.abstractModule
         }
     }
     

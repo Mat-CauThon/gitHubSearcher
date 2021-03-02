@@ -9,8 +9,8 @@ import UIKit
 
 class MainPresenter {
     
-    private(set) var navigationController: UINavigationController
     private weak var interactor: MainInteractor?
+    private(set) var navigationController: UINavigationController
     
     private let moduleFabric = ModuleFabric()
     
@@ -23,10 +23,17 @@ class MainPresenter {
         self.interactor = interactor
     }
     
-    public func showSignIn() {
-        guard let module = self.moduleFabric.setupNewModule(type: .signIn) else { return }
-        let vc = module.rootViewController
-        self.navigationController.setViewControllers([vc], animated: true)
+    public func showSignIn(output: SignInModuleOutput) {
+        guard let module = self.moduleFabric.setupNewModule(type: .signIn(output)) else { return }
+        let controller = module.rootViewController
+        self.navigationController.setViewControllers([controller], animated: true)
+    }
+    
+    public func showSearch(username: String) {
+        guard let module = self.moduleFabric.setupNewModule(type: .search(username)) else { return }
+        let controller = module.rootViewController
+//        controller.modalPresentationStyle = .fullScreen
+        self.navigationController.setViewControllers([controller], animated: true)
     }
     
 }

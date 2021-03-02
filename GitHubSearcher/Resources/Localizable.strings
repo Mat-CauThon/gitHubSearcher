@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  GitHubSearcher
+
+  Created by Roman Mishchenko on 02.03.2021.
+  
+*/
+
+//MARK: SearchModule
+"search.history" = "History";
+"search.starsCount" = "% Stars";
+"search.error.title" = "Error";
+"search.error.description" = "Can't load repositories";
+"search.error.ok" = "OK";

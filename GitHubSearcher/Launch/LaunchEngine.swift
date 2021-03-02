@@ -9,17 +9,17 @@ import UIKit
 
 final class LaunchEngine {
     
-    private weak var window: UIWindow?
+    private let window: UIWindow
     private let mainModule: MainModule
     
-    init(window: UIWindow?) {
+    init(window: UIWindow) {
         self.window = window
         self.mainModule = MainModule()
     }
     
     public func mainFlow() {
-        self.window?.rootViewController = self.mainModule.rootViewController
-        self.window?.makeKeyAndVisible()
+        self.window.rootViewController = self.mainModule.rootViewController
+        self.window.makeKeyAndVisible()
         self.mainModule.mainFlow()
     }
     
