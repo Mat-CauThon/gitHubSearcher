@@ -11,5 +11,5 @@ import CoreData
 
 @objc(ModelRepository)
 public class ModelRepository: NSManagedObject {
-
+    
 }

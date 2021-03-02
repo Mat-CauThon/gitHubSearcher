@@ -19,7 +19,6 @@ extension ModelRepository {
     @NSManaged public var fullname: String?
     @NSManaged public var starCount: Int64
     @NSManaged public var authorImageURL: String?
-
     
     func getRepository() -> Repository {
         return Repository(fullName: self.fullname, htmlUrl: self.htmlUrl, starCount: Int(starCount), authorImageURL: self.authorImageURL)
