@@ -17,14 +17,6 @@ target 'GitHubSearcher' do
 
 end
 
-target 'HelpingFunctions' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
-
-  # Pods for HelpingFunctions
-
-end
-
 target 'GitHubNetwork' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
